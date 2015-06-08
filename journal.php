@@ -53,13 +53,17 @@
                     echo "Error occurred in login. Try again.";
                 }
                 //Fetch results
-                if($loginStmt->fetch() && $passwordResult == $_POST['pass'])
+                while($loginStmt->fetch())
                 {
-                    echo $loginResult;
-                    $_SESSION['name'] = $_POST['name'];
-                    $_SESSION['loggedIn'] = true;
+                    if($passwordResult == $_POST['pass'])
+                    {
+                        echo $loginResult;
+                        $_SESSION['name'] = $_POST['name'];
+                        $_SESSION['loggedIn'] = true;
+                        $success = true;
+                    }
                 }
-                else
+                if(!($success))
                 {
                     echo "Invalid username or password. Try again or create an account.";
                 }

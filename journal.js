@@ -88,7 +88,7 @@ function submitPost(form){
     
     var oldDate = new Date(1900, 1, 1);
     
-    if(date.toString() == "" || isNaN(dateArray[0]) || isNaN(dateArray[1]) || isNaN(dateArray[2]))
+    if(date.toString() == "" || isNaN(dateArray[0]) || isNaN(dateArray[1]) || isNaN(dateArray[2]) || dateArray[1] > 12 || dateArray[2] > 31 || dateArray[1] < 1 || dateArray[2] < 1)
     {
         alert("You must enter a valid date.");
     }
@@ -178,12 +178,15 @@ window.onload = function(){
                     var dateText = document.createElement("p");
                     var dateNode = document.createTextNode("Date: " + entryObject[i].Date.toString());
                     dateText.appendChild(dateNode);
-
                     
                     //Time
                     var timeText = document.createElement("p");
-                    var timeNode = document.createTextNode("Time: " + entryObject[i].Time.toString());
-                    timeText.appendChild(timeNode);
+                    
+                    if(entryObject[i].Time.toString() != "00:00:00")
+                    {
+                        var timeNode = document.createTextNode("Time: " + entryObject[i].Time.toString());
+                        timeText.appendChild(timeNode);
+                    }
                     
                     //Entry
                     var entryText = document.createElement("p");
@@ -212,11 +215,14 @@ window.onload = function(){
                     var dateNode = document.createTextNode("Date: " + entryObject[i].Date.toString());
                     dateText.appendChild(dateNode);
 
-                    
                     //Time
                     var timeText = document.createElement("p");
-                    var timeNode = document.createTextNode("Time: " + entryObject[i].Time.toString());
-                    timeText.appendChild(timeNode);
+                    
+                    if(entryObject[i].Time.toString() != "00:00:00")
+                    {
+                        var timeNode = document.createTextNode("Time: " + entryObject[i].Time.toString());
+                        timeText.appendChild(timeNode);                        
+                    }
                     
                     //Entry
                     var entryText = document.createElement("p");
