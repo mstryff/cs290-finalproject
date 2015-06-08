@@ -32,6 +32,7 @@
             {
                 $loginResult = NULL;
                 $passwordResult = NULL;
+                $success = false;
                 //Prepare
                 if(!($loginStmt = $mysqli->prepare("SELECT username, password FROM finaldb WHERE username = ?")))
                 {
