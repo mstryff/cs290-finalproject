@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Journal Share</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="journal.js"></script>
+    </head>
+    
+    <body>
+        <h1>Welcome to Journal Share</h1>
+        <form id="login">
+            <input type="text" name="username" id="username" required placeholder="Username">
+            <input type="password" name="password" id="password" required placeholder="Password">
+            <button type="button" value="login" onclick="submitLogin(this.form)">Log In</button>
+        </form>
+        <button type="button" id="logout" onclick="logout()">Log Out</button>
+        <form id="signup" action="" method="">
+            <input type="text" name="username" id="username" required placeholder="Username">
+            <input type="password" name="password" id="password" required placeholder="Password">
+            <button type="button" value="signup" onclick="submitSignup(this.form)">Sign Up</button>
+        </form>
+        <form id="post" name="postForm">
+            Date: <input type="date" name="date" id="date">
+            <br>
+            In IE and Firefox, enter date as YYYY-MM-DD.
+            <br><br>
+            Time: <input type="time" name="time" id="time">
+            <br><br>
+            <textarea rows="15" cols="48" name="entry" id="entry" wrap="virtual" required></textarea>
+            <br><br>
+            <input type="radio" name="private" value="private">Private Entry
+            <br><br>
+            <input type="radio" name="private" value="public">Public Entry
+            <br><br>
+            <button type="button" value="Submit Entry" onclick="submitPost(this.form)">Submit Entry</button>
+        </form>
+        
+        <div id="userposts">
+            <h2>Public Entries</h2>
+            <div id="entries"> </div>
+        </div>
+        
+        <div id="myposts">
+            <h2>My Private Entries</h2>
+            <div id="privateEntries"> </div>
+        </div>
+        <p id="userinfo"> </p>
+    </body>
+</html>
